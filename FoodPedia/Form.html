@@ -1,0 +1,75 @@
+ <DOCTYPE html>
+	<html>
+		<head>
+			<title>Feedback Form</title>
+			<hr>
+				<pre style="font-family:andalus;font-size:20px;"><a href="hello.html"><img src="Logo.jpg" style="width:75px;height:65px;vertical-align:left"></a>                                                                                                                                                                                                                                   | <a href="hello.html">Home</a> | <a href="MainPage.html">Browse</a></pre>
+			</hr>
+			<script>
+				function a()
+				{
+					var name = document.forms["FedForm"]["Name"];
+					var email= document.forms["FedForm"]["EMail"];
+					var phone = document.forms["FedForm"]["telephone"];
+					var choice = document.forms["FedForm"]["Subject"];
+				    if (name.value.length == "") 
+					{
+						alert("Name Must be Filled Out");
+						return false;
+					}
+					if(email.value.indexOf("@",0) < 0)
+					{
+						window.alert("Please Enter a Valid Email ID");
+						email.focus();
+						return false;
+					}
+					if(email.value.indexOf(".",0) < 0)
+					{
+						window.alert("Please Enter a Valid Email ID");
+						email.focus();
+						return false;
+					}	   
+					if(phone.value.length!=10)
+					{
+						alert("Please Enter a Valid Phone Number");
+						return false;
+					}
+					if(choice.selectedIndex < 1)
+					{
+						window.alert("Please Select a Cuisine");
+						return false;
+					}
+					return true;
+				}
+			</script>
+			
+		</head>
+		
+		<body style="background-color: linen";>
+		<h1 style="text-align: center">FEEDBACK FORM</h1>
+		<form name="FedForm" onsubmit="return a()" method="post">
+			
+			<p>Name: <br><input type="text" size="65" name="Name" ></p>
+			<p>Email Address: <br><input type="text" size="65" name="EMail"></p>
+			<p>Telephone: <br><input type="number" size="65" name="telephone" ></p>
+			<p>
+			Preferred Cuisine:
+				<select name="Subject">
+					<option value="-1">-Select Cuisine-</option>
+					<option value="1">Dineout</option>
+					<option value="2">Cafe</option>
+					<option value="3">Fast Food</option>
+				</select></p>
+				<p>Rate Us: </p>
+				<input type="radio" name="g" value="1"> 1
+				<input type="radio" name="g" value="2"> 2				
+				<input type="radio" name="g" value="3"> 3
+				<input type="radio" name="g" value="4"> 4
+				<input type="radio" name="g" value="5"> 5<br>
+				<p> Comments: <br><textarea cols="55" rows="6" name="comment"></textarea></p>
+				<input type="submit" value="Submit" name="submit">
+				<input type="reset" value="Reset" name="reset">
+		</form>
+		</body>
+		
+	</html>
